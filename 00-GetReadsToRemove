@@ -14,13 +14,12 @@ SGAssembly: Supervised Genome Assembly for procariots
 vhfsantos, 2020
 
 	Usage: SupAssembly -r <reads.fq> -m <mge.fa> -t <N> \\
-                   -o <output.txt> -f <outfmt> -b <BC01>
+                   -o <output.txt> -b <BC01>
 
 		-r          fastq file for basecalled reads to be used as subject
 		-m          fasta file containing MGE sequenced to be used as query
 		-o          output filename
-		-f          output format for blastn, (default: 6)
-		-b          barcode identifier for heatmap (ex.: BC01)
+		-b          barcode identifier (ex.: BC01)
 		-t          number of threads (default: 10)
 	
 "
@@ -52,9 +51,6 @@ while getopts  "hr:t:m:o:f:b:" OPT; do
     o)
        OUTPUT=${OPTARG}
       ;;
-    f)
-       FMT=${OPTARG}
-      ;;
     b)
       BC=${OPTARG}
      ;;
@@ -77,7 +73,6 @@ echo "
 reads: ${READS}
 mge: ${MGE}
 out: ${OUTPUT}
-fmt: ${FMT}
 threads: ${THREADS}
 bc: ${BC}
 --------------------------------------"
