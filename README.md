@@ -10,12 +10,11 @@ As análises que aqui se seguem tomam como partida o sequênciamento de seis lin
 Além desses arquivos, as análises a seguir utilizam também o arquivo de anotação de elementos genético móveis (MGEs) em _H. salinarum_. Para gerá-lo, extraímos os MGEs completos anotados por [Pfeiffer et al 2020](https://pubmed.ncbi.nlm.nih.gov/31296677/), e em seguida, agrupamos elementos compartilhando 95% de similaridade ou mais. Assim, o arquivo `Hsal-MGEs-0.95.fasta` contém a sequência dos agrupamentos formados. 
 
 ```
-analysis/
-  └ porechop_output/
-    ├ barcode01.fastq
-    ├ barcode02.fastq
-    ├ ...
-    └ barcode06.fastq
+porechop_output/
+  ├ barcode01.fastq
+  ├ barcode02.fastq
+  ├ ...
+  └ barcode06.fastq
 ```
 
 ## Execução das etapas do proesso de supervisão
@@ -25,7 +24,7 @@ Para executar as etapas do processo de supervisão, o _script_ `00-GetReadsToRem
 ```
 $ for BC in {01..06}; do
     00-GetReadsToRemove.sh \
-        -r barcode${BC}.fastq \
+        -r porechop_output/barcode${BC}.fastq \
         -m Hsal-MGEs-0.95.fasta \
         -o supervision_barcode${BC} \
         -t 15
@@ -35,12 +34,11 @@ done
 Depois dessa etapa, tivemos a seguinte estrutura de diretórios:
 
 ```
-analysis/
-  ├ porechop_output/
-  ├ supervision_barcode01/
-  ├ supervision_barcode02/
-  ├ ...
-  └ supervision_barcode06/
+┌ porechop_output/
+├ supervision_barcode01/
+├ supervision_barcode02/
+├ ...
+└ supervision_barcode06/
 
 ```
 
@@ -57,13 +55,12 @@ $ Rscipt 03-PlotRidges.R
 Essa etapa resultou na seguinte estrutura:
 
 ```
-analysis/
-  ├ porechop_output/
-  ├ supervision_barcode01/
-  ├ supervision_barcode02/
-  ├ ...
-  ├ supervision_barcode06/
-  └ Stats/
+┌ porechop_output/
+├ supervision_barcode01/
+├ supervision_barcode02/
+├ ...
+├ supervision_barcode06/
+└ Stats/
 ```
 
 ## Remoção das _reads_ contendo MGEs opcionais
@@ -73,7 +70,7 @@ Finalmente, os arquivos `barcode??.to-remove.txt` foram utilizados para remover 
 
 ```
 $ for i in {01..06}; do
-    filterbyname.sh in=barcode${i}.fastq \
+    filterbyname.sh in=porechop_output/barcode${i}.fastq \
         names=Stats/barcode${i}-to-remove.txt \
         out=barcode${i}-to-assembly.fastq \
         include=f qin=33
