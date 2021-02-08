@@ -52,7 +52,7 @@ A próxima etapa foi rodar os _scripts_ de análise exploratório dos resultados
 
 ```
 $ python 01-GetStats.py
-$ for BC in {01..06}; do python 02-GetReadsToRemove.py --barcode${BC}; done
+$ for BC in {01..06}; do python 02-GetReadsToRemove.py --barcode ${BC}; done
 $ Rscipt 03-PlotRidges.R
 ```
 
@@ -65,6 +65,22 @@ analysis/
   ├ supervision_barcode02/
   ├ ...
   ├ supervision_barcode06/
-  ├ Stats/
-  └ Hsal_mge_map.fasta
+  ├ Hsal_mge_map.fasta
+  └ Stats/
 ```
+
+## Remoção das _reads_ contendo MGEs opcionais
+
+Finalmente, os arquivos `barcode??.to-remove.txt` foram utilizados para remover as _reads_ contendo MGEs opcionais, finalizando assim o processo de supervisão. Essa etapa foi feita utilizando o _scripts_ `filterbyname.sh` do pacote [BBMap](https://sourceforge.net/projects/bbmap/):
+
+
+```
+$ for i in {01..06}; do
+  filterbyname.sh in=barcode${i}.fastq \
+  names=Stats/barcode${i}-to-remove.txt \
+  out=barcode${i}-to-assembly.fastq \
+  include=f qin=33
+  done
+```
+
+Com isso, foram gerados arquivos `barcode??-to-assembly.fastq`, que serviram de _input_ para os montadores de genoma.
