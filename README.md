@@ -25,11 +25,11 @@ Para executar as etapas do processo de supervisão, o _script_ `00-GetReadsToRem
 
 ```
 $ for BC in {01..06}; do
-        00-GetReadsToRemove.sh \
-                -r barcode${BC}.fastq \
-                -m Hsal_mge_map.fasta \
-                -o supervision_barcode${BC} \
-                -t 15
+    00-GetReadsToRemove.sh \
+        -r barcode${BC}.fastq \
+        -m Hsal_mge_map.fasta \
+        -o supervision_barcode${BC} \
+        -t 15
 done
 ```
 
@@ -76,11 +76,11 @@ Finalmente, os arquivos `barcode??.to-remove.txt` foram utilizados para remover 
 
 ```
 $ for i in {01..06}; do
-  filterbyname.sh in=barcode${i}.fastq \
-  names=Stats/barcode${i}-to-remove.txt \
-  out=barcode${i}-to-assembly.fastq \
-  include=f qin=33
-  done
+    filterbyname.sh in=barcode${i}.fastq \
+        names=Stats/barcode${i}-to-remove.txt \
+        out=barcode${i}-to-assembly.fastq \
+        include=f qin=33
+done
 ```
 
 Com isso, foram gerados arquivos `barcode??-to-assembly.fastq`, que serviram de _input_ para os montadores de genoma.
