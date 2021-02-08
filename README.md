@@ -11,7 +11,7 @@ Além desses arquivos, as análises a seguir utilizam também o arquivo de anota
 
 ```
 analysis/
-  ├ porechop_output/
+  └ porechop_output/
     ├ barcode01.fastq
     ├ barcode02.fastq
     ├ ...
