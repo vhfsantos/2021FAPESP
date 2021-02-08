@@ -34,3 +34,38 @@ $ for BC in 01 02 03 04 05 06; do
                 -t 15
 done
 ```
+
+Depois dessa etapa, tivemos a seguinte estrutura de diretórios:
+
+```
+analysis/
+  ├ porechop_output/
+  ├ supervision_barcode01/
+  ├ supervision_barcode02/
+  ├ ...
+  ├ supervision_barcode06/
+  └ Hsal_mge_map.fasta
+
+```
+
+## Análise exploratória
+
+A próxima etapa foi rodar os _scripts_ de análise exploratório dos resultados. Esses _scripts_ criam arquivos de texto utilizados para plotar todos os gráficos mostrados no relatório do trabalho. Além disso, criam também os arquivos `barcode??.to-remove.txt` com os nomes das _reads_ que devem ser removidas no processo de supervisão.
+
+```
+$ python 01-GetStats.py
+$ Rscipt 02-PlotRidges.R
+```
+
+Essa etapa resultou na seguinte estrutura:
+
+```
+analysis/
+  ├ porechop_output/
+  ├ supervision_barcode01/
+  ├ supervision_barcode02/
+  ├ ...
+  ├ supervision_barcode06/
+  ├ Stats/
+  └ Hsal_mge_map.fasta
+```
