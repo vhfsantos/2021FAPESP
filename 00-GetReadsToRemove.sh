@@ -151,16 +151,21 @@ if [ ! -f ${MAPPINGOUT}.cov90p.cannot-extract-150bp-upstream ]; then
 		grep -v -f ${MAPPINGOUT}.cov90p.cannot-extract-150bp-downstream \
 		> ${MAPPINGOUT}.cov90p.to-extract
 
+
+	# here I am writting the query files. I editted the query name so
+	# that it contains: (i) the name of the read the MGE was mapped 
+	# (ii) the MGE size, and (iii) the MGE name. These three fields are
+	# separated by '_' (see the last awk field: $2_$5_$1)
 	echo ==== writting 150bp-upstream seqs
 	bedtools getfasta -fi ${FASTA} -name -bed <(cat \
 		${MAPPINGOUT}.cov90p.to-extract | \
-		awk 'BEGIN{OFS="\t"}{ print $2, $3-150, $3, $2"_"$1"_"$5}') | sed 's/::.*//' | \
+		awk 'BEGIN{OFS="\t"}{ print $2, $3-150, $3, $2"_"$5"_"$1}') | sed 's/::.*//' | \
 		awk '/^>/{$0=$0"-"(++i)}1' > ${MAPPINGOUT}.query.upstream
 
 	echo ==== writting 150bp-downstream seqs
 	bedtools getfasta -fi ${FASTA} -name -bed <(cat \
 		${MAPPINGOUT}.cov90p.to-extract | \
-		awk 'BEGIN{OFS="\t"}{ print $2, $4, $4+150, $2"_"$1"_"$5}') | sed 's/::.*//' | \
+		awk 'BEGIN{OFS="\t"}{ print $2, $4, $4+150, $2"_"$5"_"$1}') | sed 's/::.*//' | \
 		awk '/^>/{$0=$0"_"(++i)}1' > ${MAPPINGOUT}.query.downstream
 
 	echo ==== merging...
