@@ -164,7 +164,7 @@ if [ ! -f ${MAPPINGOUT}.cov90p.cannot-extract-150bp-upstream ]; then
 		awk '/^>/{$0=$0"_"(++i)}1' > ${MAPPINGOUT}.query.downstream
 
 	echo ==== merging...
-	python MergeUpstreamDownstream.py \
+	python ${HOME_DIR}/MergeUpstreamDownstream.py \
 		-u ${MAPPINGOUT}.query.upstream \
 		-d ${MAPPINGOUT}.query.downstream \
 		-o ${MAPPINGOUT}.query.merged
