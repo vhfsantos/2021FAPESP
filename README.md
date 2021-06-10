@@ -2,7 +2,7 @@
 
 __Vinícius H. F. Santos<sup>1,2</sup>, Tie Koide<sup>1</sup>__
 <br>
-<sub>1. Laboratório de Biologia Sistêmica de Microrganismos (LaBiSisMi) Departamento de Bioquímica e Imunologia, Faculdade de Medicina de Ribeirão Preto, Universidade de São Paulo, Ribeirão Preto, Brazil</sub>
+<sub>1. Laboratório de Biologia Sistêmica de Microrganismos (LaBiSisMi) Departamento de Bioquímica e Imunologia, Faculdade de Medicina de Ribeirão Preto, Universidade de São Paulo, Ribeirão Preto, Brazil</sub><br>
 <sub>2. Departamento de Biologia, Faculdade de Filosofia, Ciências e Letras de Ribeirão Preto, Universidade de São Paulo, Ribeirão Preto, Brazil</sub>
 
 
