@@ -15,8 +15,8 @@ Este repositório contém dados gerados na segunda etapa do trabalho de iniciaç
 |---------------|----------------|
 |`SC.fasta`|Sequência genômica da referência SC de _H. salinarum_ estabelecida no projeto na abordagem **Supervisão+Canu**|
 |`SC.gff`| Anotação da referência SC feita pelo programa _PROKKA_|
-|`BC02.fasta`| Genoma da linhagem Δ_ura3_ montado na abordagem **Supervisão+Canu**|
-|`BC03.fasta`| Genoma da linhagem Δ_ura3_ΔLSm montado na abordagem **Supervisão+Canu**|
-|`BC04.fasta`| Genoma da linhagem Δ_ura3_ΔRNase R montado na abordagem **Supervisão+Canu**|
-|`BC05.fasta`| Genoma da linhagem Δ_ura3_$_B$ montado na abordagem **Supervisão+Canu**|
-|`BC06.fasta`| Genoma da linhagem Δ_ura3_ΔLSm$_B$ montado na abordagem **Supervisão+Canu**|
+|`BC02.fasta`| Genoma da linhagem Δ<i>ura3</i> montado na abordagem **Supervisão+Canu**|
+|`BC03.fasta`| Genoma da linhagem Δ<i>ura3</i>ΔLSm montado na abordagem **Supervisão+Canu**|
+|`BC04.fasta`| Genoma da linhagem Δ<i>ura3</i>ΔRNase R montado na abordagem **Supervisão+Canu**|
+|`BC05.fasta`| Genoma da linhagem Δ<i>ura3</i><sub>B</sub> montado na abordagem **Supervisão+Canu**|
+|`BC06.fasta`| Genoma da linhagem Δ<i>ura3</i>ΔLSm<sub>B</sub> montado na abordagem **Supervisão+Canu**|
